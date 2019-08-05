@@ -9,6 +9,9 @@
         <todo-card class="mx-auto mt-10 w-full max-w-lg">
             <todo-button></todo-button>
         </todo-card>
+        <todo-card class="mx-auto mt-10 w-full max-w-lg">
+            <todo-input></todo-input>
+        </todo-card>
     </div>
 </template>
 
