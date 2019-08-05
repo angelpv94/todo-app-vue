@@ -3,7 +3,7 @@
         <h1 class="font-hairline text-6xl text-center text-gray-500">Todo App</h1>
 
         <todo-card class="mx-auto mt-4 h-64 w-full max-w-lg">
-            Todo List Hola soy Francis
+            Todo List
         </todo-card>
 
         <todo-card class="mx-auto mt-10 w-full max-w-lg">
