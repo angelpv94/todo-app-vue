@@ -1,5 +1,5 @@
 <template>
-    <div id="app" class="bg-gray-100 h-screen">
+    <div id="app" class="bg-gray-200">
         <TodoList/>
     </div>
 </template>
