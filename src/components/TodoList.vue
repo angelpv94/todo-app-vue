@@ -3,9 +3,10 @@
         
         <todo-header cardHeader="My To-do App"></todo-header>
 
-        <todo-card class="mx-auto mt-4 h-64 w-full max-w-lg">
-            This is a test
-        </todo-card>
+        <div class="flex mx-auto mt-10 w-full max-w-lg">
+            <todo-input class="w-3/5 m-2"></todo-input>
+            <todo-button class="w-2/5 m-2">Add task</todo-button>
+        </div>
 
         <todo-card class="mx-auto mt-10 w-full max-w-lg">
             <todo-button>Botón</todo-button>
