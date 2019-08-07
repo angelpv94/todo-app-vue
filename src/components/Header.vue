@@ -1,7 +1,7 @@
 <template>
     <header class="header row center-align">
         <div class="col s12">
-          <h1 :class="[cardHeader]" class="text-gray-600 text-4xl font-semibold">{{ cardHeader }}</h1>
+          <h1 :class="[cardHeader]" class="text-center text-gray-600 text-4xl font-semibold">{{ cardHeader }}</h1>
         </div>
       </header>
 </template>
