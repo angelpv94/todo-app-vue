@@ -1,7 +1,7 @@
 <template>
     <div class="container mx-auto px-4 py-20 flex flex-col flex-wrap">
         
-        <todo-header cardHeader="Esto es un título de prueba"></todo-header>
+        <todo-header cardHeader="My To-do App"></todo-header>
 
         <todo-card class="mx-auto mt-4 h-64 w-full max-w-lg">
             This is a test
