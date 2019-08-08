@@ -1,11 +1,11 @@
 <template>
-    <div class="w-screen h-screen fixed z-50 flex items-center justify-center pin modal-bg" v-if="show" v-on:click.self="close">
+    <div class="w-screen h-screen fixed z-50 flex items-center justify-center pin modal-bg" v-if="show" @click.self="close">
         <todo-card class="bg-white w-full mx-1 md:w-1/2">
             <header v-bind:class="[bgHeader]">
                 <div class="flex justify-between">
                     <slot name="header"></slot>
-                    <todo-button icon class="w-10 h-10" @click="close"> 
-                        Close
+                    <todo-button  class="w-10 h-10" @click="close"> 
+                        X
                     </todo-button>
                 </div>   
             </header>
