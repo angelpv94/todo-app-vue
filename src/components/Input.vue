@@ -34,7 +34,6 @@ export default {
             default: 'text',
             type: String
         },
-
     },
 
     data () {
