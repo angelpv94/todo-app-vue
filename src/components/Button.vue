@@ -37,7 +37,7 @@ export default {
 
     methods: {
         clicked () {
-            this.$emit('click')
+            this.$emit('click', null)
         }
     }
 }

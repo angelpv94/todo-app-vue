@@ -8,8 +8,9 @@
             </span>
         </label>
         <input 
-        @keyup.enter="okay" 
-        :v-model="v-model" 
+        @keyup.enter="enter"
+        @input="updateContent($event.target.value)" 
+        :value="value"
         :id="id" 
         :placeholder="placeholder" 
         :type="type" 
@@ -20,6 +21,7 @@
 <script>
 export default {
     props: {
+        value: {},
         inputId: {
             default: 'My input id',
             type: String
@@ -57,8 +59,12 @@ export default {
     },
 
     methods: {
-        okay () {
-            this.$emit('enter')
+        updateContent(content) {
+            this.testContent = content;
+            this.$emit('input', content);
+        },
+        enter () {
+            this.$emit('enter', null)
         }
 
     }

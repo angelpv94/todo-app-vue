@@ -23,7 +23,7 @@
             </todo-input>-->
             <div class="flex mx-auto w-full">
                 <todo-button 
-                    buttonColor="bg-green-500" 
+                    buttonColor="bg-gray-500" 
                     hoverColor="hover:bg-green-700" 
                     textColor="text-white" 
                     class="w-1/2 m-2" 
