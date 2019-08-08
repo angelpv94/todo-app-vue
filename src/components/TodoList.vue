@@ -23,14 +23,20 @@
             </todo-input>-->
             <div class="flex mx-auto w-full">
                 <todo-button 
-                    buttonColor="bg-gray-500" 
-                    hoverColor="hover:bg-green-700" 
+                    buttonColor="bg-green-400" 
+                    hoverColor="hover:bg-green-500" 
                     textColor="text-white" 
                     class="w-1/2 m-2" 
                     @click="saveTask">
                         Add task
                 </todo-button>
-                <todo-button buttonColor="bg-red-500" hoverColor="hover:bg-red-700" textColor="text-gray-200" class="w-1/2 m-2">Cancel</todo-button>
+                <todo-button 
+                    buttonColor="bg-red-500" 
+                    hoverColor="hover:bg-red-700" 
+                    textColor="text-gray-200" 
+                    class="w-1/2 m-2">
+                        Cancel
+                </todo-button>
             </div>
         </div>
        <todo-card class="flex mx-auto mt-5 w-full max-w-lg" v-if="tasks.length > 0">
