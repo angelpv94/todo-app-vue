@@ -1,13 +1,14 @@
 <template>
     <button 
         :class="[buttonColor, hoverColor, textColor]" 
-        class="font-bold py-2 px-4 rounded" 
-        @click="clicked()">
+        class="font-bold py-2 px-4 rounded"
+        @click="clicked">
         <slot></slot>
     </button>
 </template>
 
 <script>
+
 export default {
     props: {
         buttonColor: {
@@ -36,7 +37,7 @@ export default {
 
     methods: {
         clicked () {
-            this.$emit('click', true)
+            this.$emit('click')
         }
     }
 }
