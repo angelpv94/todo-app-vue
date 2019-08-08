@@ -1,13 +1,17 @@
 <template>
-    <button :class="[buttonBg, hoverColor, textColor]" class="font-bold py-2 px-4 rounded">
+    <button 
+        :class="[buttonColor, hoverColor, textColor]" 
+        class="font-bold  rounded"
+        @click="clicked">
         <slot></slot>
     </button>
 </template>
 
 <script>
+
 export default {
     props: {
-        buttonBg: {
+        buttonColor: {
             default: 'bg-blue-500',
             type: String
         },
@@ -32,7 +36,9 @@ export default {
     },
 
     methods: {
-
+        clicked () {
+            this.$emit('click', null)
+        }
     }
 }
 </script>
