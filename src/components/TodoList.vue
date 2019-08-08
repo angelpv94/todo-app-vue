@@ -63,7 +63,7 @@ export default {
     methods: {
         saveTask() {
             this.tasks.push(this.newTask);
-            /*this.newTaskTitle = '';*/
+            this.newTask = '';
         }
     }
 }
