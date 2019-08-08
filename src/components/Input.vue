@@ -1,9 +1,19 @@
 <template>
     <div>
         <label :for="inputId">
-            <span :class="[labelTitle]" class="text-base font-semibold text-gray-700"> {{labelTitle}} </span>
+            <span 
+                :class="[labelTitle]" 
+                class="text-base font-semibold text-gray-700"> 
+                {{labelTitle}} 
+            </span>
         </label>
-        <input @keyup.enter="okay" :v-model="v-model" :id="id" :placeholder="placeholder" :type="type" class="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block my-2 w-full appearance-none leading-normal">
+        <input 
+        @keyup.enter="okay" 
+        :v-model="v-model" 
+        :id="id" 
+        :placeholder="placeholder" 
+        :type="type" 
+        class="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block my-2 w-full appearance-none leading-normal">
     </div>
 </template>
 
