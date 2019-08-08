@@ -9,6 +9,8 @@
         </label>
         <input 
         @keyup.enter="enter"
+        @blur="save"
+        @keyup.esc="escape"
         @input="updateContent($event.target.value)" 
         :value="value"
         :id="id" 
@@ -64,7 +66,13 @@ export default {
             this.$emit('input', content);
         },
         enter () {
-            this.$emit('enter', null)
+            this.$emit('enter', null);
+        },
+        save () {
+            this.$emit('blur', null);
+        },
+        escape () {
+            this.$emit('esc', null);
         }
 
     }
