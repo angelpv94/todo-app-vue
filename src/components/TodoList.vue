@@ -22,26 +22,43 @@
                 @enter="saveTask">
             </todo-input>
             <div class="flex mx-auto w-full">
-                <todo-button 
-                    buttonColor="bg-blue-400" 
-                    hoverColor="hover:bg-blue-500" 
-                    textColor="text-white" 
-                    class="w-1/2 m-2 py-2 px-4" 
-                    @click="saveTask">
-                        Add task
-                </todo-button>
-                <todo-button 
-                    buttonColor="bg-red-400" 
-                    hoverColor="hover:bg-red-500" 
-                    textColor="text-white" 
-                    class="w-1/2 m-2 py-2 px-4"
-                    @click="changeState('default')">
-                        Cancel
-                </todo-button>
+                <div class="flex mx-auto w-1/2">
+                    <todo-button 
+                        buttonColor="bg-blue-400" 
+                        hoverColor="hover:bg-blue-500" 
+                        textColor="text-white" 
+                        class="w-6/12 mx-auto m-2 py-2 px-4" 
+                        @click="saveTask">
+                            Add task
+                    </todo-button>
+                </div>
+                <div class="flex mx-auto w-1/2">
+                    <todo-button 
+                        buttonColor="bg-red-400" 
+                        hoverColor="hover:bg-red-500" 
+                        textColor="text-white" 
+                        class="w-6/12 mx-auto m-2 py-2 px-4"
+                        @click="changeState('default')">
+                            Cancel
+                    </todo-button>
+                </div>
             </div>
         </div>
         <div v-if="tasks.length > 0">
-            <todo-card :class="{'bg-gray-500': task.done}" v-for="task in tasks" :key="task.id" class="flex mx-auto mt-5 w-full max-w-lg">
+            <div class="flex mx-auto mt-5 w-full max-w-lg border-b-2 pb-2 border-gray-400">
+                <p class="font-regular text-base text-gray-700"> Total tasks: 
+                    <span class="font-bold">{{tasks.length}}</span> 
+                </p>
+                <hr>
+                <p class="font-regular text-base text-gray-700"> Remaining Tasks: 
+                    <span class="font-bold">{{remainingTasks}}</span> 
+                </p>    
+            </div>
+            <todo-card 
+                :class="{'bg-gray-500': task.done}" 
+                v-for="task in tasks" 
+                :key="task.id" 
+                class="flex mx-auto mt-5 w-full max-w-lg">
                 <ul class="w-9/12">
                     <li @click="editTask(task)" 
                         v-if="!task.editing" 
@@ -60,7 +77,9 @@
                     <hr>
                     <li v-if="!task.editing" > 
                        <span :class="{'text-gray-100': task.done}" class="text-base font-medium text-gray-800">Descripción de la tarea</span> 
-                       <p :class="{'text-gray-100': task.done}" class="text-base font-light text-gray-800">{{task.content}}</p>
+                       <p :class="{'text-gray-100': task.done}" class="text-base text-justify font-light text-gray-800">
+                           {{task.content}}
+                        </p>
                     </li>
                     <todo-input v-else v-model="task.content"
                         labelTitle="Edit Description"
@@ -76,7 +95,7 @@
                         buttonColor="bg-green-400" 
                         hoverColor="hover:bg-green-500" 
                         textColor="text-white" 
-                        class="flex-1 float-right m-2 font-bold py-1 px-2"  
+                        class="flex-1 float-right m-2 py-1 px-2"  
                         @click="taskDone(task)">
                             Done
                     </todo-button>                    
@@ -84,22 +103,32 @@
                         buttonColor="bg-red-400" 
                         hoverColor="hover:bg-red-500" 
                         textColor="text-white" 
-                        class="flex-1 float-right m-2 font-bold py-1 px-2"  
+                        class="flex-1 float-right m-2 py-1 px-2"  
                         @click="removeTask(task)">
                             X
                     </todo-button>
                 </div>
             </todo-card>
+            <div v-if="tasks.length > 0" class="flex mx-auto mt-5 w-full max-w-lg border-b-2 pb-2 border-gray-400">
+                <p class="font-regular text-base text-gray-700"> Total tasks: 
+                    <span class="font-bold">{{tasks.length}}</span> 
+                </p>
+                <hr>
+                <p class="font-regular text-base text-gray-700"> Remaining Tasks: 
+                    <span class="font-bold">{{remainingTasks}}</span> 
+                </p>         
+            </div>
         </div>
         <div v-else class="flex flex-col  mx-auto mt-5 w-full max-w-lg" >
-           <p v-if="tasks.length === 0" class="text-center text-base font-medium w-full text-gray-800">¡No tienes tareas pendientes!</p>
-       </div>
+           <p v-if="tasks.length === 0" 
+              class="text-center text-base font-medium w-full text-gray-800">¡No tienes tareas pendientes!</p>
+        </div>
         <div class="flex  mx-auto mt-5 w-full max-w-lg" >
             <todo-button
                 buttonColor="bg-green-400" 
                 hoverColor="hover:bg-green-500" 
                 textColor="text-white" 
-                class="mx-auto my-5 float-right m-2 font-bold py-1 px-2 w-1/3" 
+                class="mx-auto my-5 float-right m-2 py-1 px-2 w-1/3" 
                 @click="changeState('edit')"
                 v-if="state === 'default'">
                     Add a new task
@@ -108,7 +137,7 @@
                 buttonColor="bg-red-400"
                 hoverColor="hover:bg-red-500" 
                 textColor="text-white" 
-                class="mx-auto my-5 float-right m-2 font-bold py-1 px-2 w-1/3" 
+                class="mx-auto my-5 float-right m-2 py-1 px-2 w-1/4" 
                 @click="clearAll()"
                 v-if="tasks.length > 0">
                     Clear all
@@ -131,12 +160,14 @@ export default {
             newTaskContent: '',
             tasks: [],
             titleBeforeEditCache : '',
-            contentBeforeEditCache: '',
+            contentBeforeEditCache: '',         
         };
     },
 
-    mounted () {
-
+    computed: {
+        remainingTasks () {
+            return this.tasks.filter(task => !task.done).length
+        }
     },
 
     methods: {

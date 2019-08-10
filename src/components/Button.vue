@@ -1,7 +1,7 @@
 <template>
     <button 
         :class="[buttonColor, hoverColor, textColor]" 
-        class="font-bold  rounded"
+        class="font-medium  rounded-lg"
         @click="clicked">
         <slot></slot>
     </button>
